@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="So thu nhat"
+            android:textSize="18dp"
+            android:textColor="@color/black">
+        </TextView>
+        <EditText
+            android:id="@+id/edtSo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Moi nhap 1 so o day">
+        </EditText>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="So thu hai"
+            android:textSize="18dp"
+            android:textColor="@color/black">
+        </TextView>
+        <EditText
+            android:id="@+id/edtSo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Moi nhap 1 so o day"
+            android:paddingLeft="10dp">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="50dp"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/btnCong"
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:onClick="Cong"/>
+        <Button
+            android:id="@+id/btnTru"
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:onClick="Tru"/>
+        <Button
+            android:id="@+id/btnNhan"
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:onClick="Nhan"/>
+        <Button
+            android:id="@+id/btnChia"
+            android:layout_margin="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:onClick="Chia"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ket qua:"
+            android:textSize="18dp"
+            android:textColor="@color/black">
+        </TextView>
+        <EditText
+            android:id="@+id/edtKetqua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Noi hien thi ket qua"
+            android:paddingLeft="10dp"
+            android:enabled="false">
+        </EditText>
+
+    </LinearLayout>
+</LinearLayout>
