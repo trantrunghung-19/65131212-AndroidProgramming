@@ -102,14 +102,14 @@
             android:textSize="18dp"
             android:textColor="@color/black">
         </TextView>
+
         <EditText
             android:id="@+id/edtKetqua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:hint="Noi hien thi ket qua"
-            android:paddingLeft="10dp"
-            android:enabled="false">
-        </EditText>
+            android:paddingLeft="10dp"></EditText>
 
     </LinearLayout>
 </LinearLayout>
