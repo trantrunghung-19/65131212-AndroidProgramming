@@ -1,8 +1,11 @@
 package com.example.hung65131212bth7;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,14 +16,14 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    ArrayList<String> dsTenTinhThanhVN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> dsTenTinhThanhVN;
+
         dsTenTinhThanhVN= new ArrayList<String>();
         dsTenTinhThanhVN.add("Ha Noi");
         dsTenTinhThanhVN.add("Khanh Hoa");
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         ListView lvTenTinhThanh= findViewById(R.id.lvDanhSachTT);
         lvTenTinhThanh.setAdapter(adapterTinhThanh);
 
+        lvTenTinhThanh.setOnItemClickListener(Bolangnghevaxl);
+
 
 
 
@@ -42,4 +47,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+    AdapterView.OnItemClickListener Bolangnghevaxl=new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+            String strTenTinhChon =dsTenTinhThanhVN.get(i);
+            Toast.makeText(MainActivity.this,strTenTinhChon,Toast.LENGTH_LONG).show();
+        }
+    };
+
+
 }
