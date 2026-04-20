@@ -46,7 +46,7 @@ public class ThanhPhoFragment extends Fragment {
         dsDuLieu.add(new LandScape("Hải Phòng", "ic_launcher_background"));
         dsDuLieu.add(new LandScape("Đà Lạt", "ic_launcher_background"));
         dsDuLieu.add(new LandScape("Vũng Tàu", "ic_launcher_background"));
-        dsDuLieu.add(new LandScape("Trần Trung Hùng", "anhsv"));
+        dsDuLieu.add(new LandScape("Trần Trung Hùng", "ic_launcher_background"));
         return dsDuLieu;
     }
 }
