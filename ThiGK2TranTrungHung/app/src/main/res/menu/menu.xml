@@ -7,7 +7,7 @@
         android:title="Home" />
     <item
         android:id="@+id/nav_cau1"
-        android:icon=""
+        android:icon="@android:drawable/ic_menu_edit"
         android:title="Tính Toán" />
     <item
         android:id="@+id/nav_cau2"
@@ -19,6 +19,6 @@
         android:title="Địa Điểm Du Lịch" />
     <item
         android:id="@+id/nav_cau4"
-        android:icon="@drawable/anhsv"
+        android:icon="@drawable/ic_launcher_background"
         android:title="Tôi" />
 </menu>

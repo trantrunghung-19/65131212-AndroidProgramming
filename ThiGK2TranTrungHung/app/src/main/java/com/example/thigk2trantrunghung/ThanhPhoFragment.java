@@ -1,52 +1,52 @@
 package com.example.thigk2trantrunghung;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ThanhPhoFragment extends Fragment {
     LandScapeAdapter landScapeAdapter;
     ArrayList<LandScape> recylerViewDatas;
     RecyclerView recyclerViewLandscape;
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_thanh_pho, container, false);
+
         recylerViewDatas = getDataForRecyclerView();
-        recyclerViewLandscape=findViewById(R.id.recyclerLand);
-        //RecyclerView.LayoutManager layoutLinear= new LinearLayoutManager(this);
-        //recyclerViewLandscape.setLayoutManager(layoutLinear);
-        //RecyclerView.LayoutManager layoutLinearHorizonal= new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        //recyclerViewLandscape.setLayoutManager(layoutLinearHorizonal);
-        RecyclerView.LayoutManager layoutGrid= new GridLayoutManager(this,2);
+        recyclerViewLandscape = view.findViewById(R.id.recyclerLand);
+
+        RecyclerView.LayoutManager layoutGrid = new GridLayoutManager(getContext(), 2);
         recyclerViewLandscape.setLayoutManager(layoutGrid);
-        landScapeAdapter= new LandScapeAdapter(this, recylerViewDatas);
+
+        landScapeAdapter = new LandScapeAdapter(getContext(), recylerViewDatas);
         recyclerViewLandscape.setAdapter(landScapeAdapter);
 
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        return view;
     }
-    ArrayList<LandScape> getDataForRecyclerView(){
-        ArrayList<LandScape> dsDuLieu= new ArrayList<LandScape>();
-        LandScape landScape1= new LandScape("","");
-        dsDuLieu.add(landScape1);
-        dsDuLieu.add(new LandScape("",""));
-        dsDuLieu.add(new LandScape("",""));
-        dsDuLieu.add(new LandScape("",""));
+
+    ArrayList<LandScape> getDataForRecyclerView() {
+        ArrayList<LandScape> dsDuLieu = new ArrayList<>();
+        dsDuLieu.add(new LandScape("Hà Nội", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("TP. Hồ Chí Minh", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Đà Nẵng", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Nha Trang", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Cần Thơ", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Huế", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Hải Phòng", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Đà Lạt", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Vũng Tàu", "ic_launcher_background"));
+        dsDuLieu.add(new LandScape("Trần Trung Hùng", "anhsv"));
         return dsDuLieu;
     }
 }
