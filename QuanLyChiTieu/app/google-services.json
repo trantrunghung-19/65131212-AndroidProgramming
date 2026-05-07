@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "776490311983",
+    "project_id": "android-projects-cd1dc",
+    "storage_bucket": "android-projects-cd1dc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776490311983:android:8644ded261a8952903c1da",
+        "android_client_info": {
+          "package_name": "vn.edu.tinhoc123.quanlychitieu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRYXwSYmPs1AurjJhvzUejFM9faACBwCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
