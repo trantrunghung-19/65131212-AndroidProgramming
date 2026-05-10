@@ -1,62 +1,57 @@
 package vn.edu.tinhoc123.vieccanlam;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-
 import java.util.List;
 
-public class TaskRVadapter extends RecyclerView.Adapter {
-    List<TASKS> dataSource;
+public class TaskRVadapter extends RecyclerView.Adapter<TaskRVadapter.TaskItemViewHolder> {
+    List<Tasks> dataSource;
 
-    public TaskRVadapter(List<TASKS> dataSource) {
+    public TaskRVadapter(List<Tasks> dataSource) {
         this.dataSource = dataSource;
     }
 
     public class TaskItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvTenVCL;
-        TextView tvNgayHetHan;
-        public int position;
+        TextView tvTenVCL, tvDeadLine;
+
         public TaskItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTenVCL = itemView.findViewById(R.id.textViewTenVCL);
-            tvNgayHetHan = itemView.findViewById(R.id.textViewThoiGian);
             itemView.setOnClickListener(this);
+            tvTenVCL = itemView.findViewById(R.id.textViewTenVCL);
+            // Sửa ID để khớp với task_item.xml (textViewThoiGian)
+            tvDeadLine = itemView.findViewById(R.id.textViewThoiGian);
         }
 
         @Override
         public void onClick(View v) {
-            int vtCacVCL = getAdapterPosition();
-            TASKS taskClicked = dataSource.get(vtCacVCL);
-            Toast.makeText(v.getContext(), "Bạn vừa chọn việc " + taskClicked.getName(), Toast.LENGTH_SHORT).show();
+            int vtClicked = getAdapterPosition();
+            if (vtClicked != RecyclerView.NO_POSITION) {
+                Tasks taskClicked = dataSource.get(vtClicked);
+                Toast.makeText(v.getContext(), "Bạn vừa chọn việc: " + taskClicked.getName(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TaskItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent, false);
-        TaskItemViewHolder viewHolder = new TaskItemViewHolder(v);
-        return viewHolder;
+        return new TaskItemViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder,@SuppressLint("RecyclerView") int position) {
-        TaskItemViewHolder viewHolder = (TaskItemViewHolder) holder;
-        viewHolder.position = position;
-        TASKS task = dataSource.get(position);
-        ((TaskItemViewHolder) holder).tvTenVCL.setText(task.getName());
-        ((TaskItemViewHolder) holder).tvNgayHetHan.setText(task.getDate());
-
+    public void onBindViewHolder(@NonNull TaskItemViewHolder holder, int position) {
+        Tasks tasks = dataSource.get(position);
+        holder.tvTenVCL.setText(tasks.getName());
+        // Hiển thị ngày (Date)
+        holder.tvDeadLine.setText(tasks.getDate());
     }
 
     @Override
